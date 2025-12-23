@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Tracker</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Global error overlay: catches import-time and uncaught errors and shows them in the page
+      (function(){
+        function showOverlay(title, message){
+          try{
+            const existing = document.getElementById('__error_overlay')
+            if(existing){ existing.remove() }
+            const el = document.createElement('div')
+            el.id = '__error_overlay'
+            el.style.position = 'fixed'
+            el.style.left = '0'
+            el.style.top = '0'
+            el.style.right = '0'
+            el.style.bottom = '0'
+            el.style.background = 'rgba(15, 23, 36, 0.95)'
+            el.style.color = '#fff'
+            el.style.zIndex = '999999'
+            el.style.overflow = 'auto'
+            el.style.padding = '20px'
+            el.innerHTML = `<h2 style="margin-top:0">${title}</h2><pre style="white-space:pre-wrap;background:#111;padding:12;border-radius:6px">${message}</pre><div style="margin-top:12"><button id="__error_overlay_reload">Reload</button></div>`
+            document.body.appendChild(el)
+            document.getElementById('__error_overlay_reload').onclick = function(){ window.location.reload() }
+          }catch(e){ console.error('overlay error', e) }
+        }
+
+        window.addEventListener('error', function(e){
+          const msg = (e && e.error && e.error.stack) ? e.error.stack : (e && e.message) || String(e)
+          showOverlay('Uncaught error', msg)
+          console.error('Global error captured', e)
+        })
+        window.addEventListener('unhandledrejection', function(e){
+          const msg = (e && e.reason && (e.reason.stack || e.reason.message)) || String(e)
+          showOverlay('Unhandled promise rejection', msg)
+          console.error('Unhandled rejection captured', e)
+        })
+      })();
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

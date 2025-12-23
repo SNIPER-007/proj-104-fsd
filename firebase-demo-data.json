@@ -1,0 +1,86 @@
+{
+  "market": {
+    "AAPL": { "name": "Apple Inc.", "currentPrice": 170.50, "updatedAt": 1763952000000 },
+    "MSFT": { "name": "Microsoft Corp.", "currentPrice": 330.20, "updatedAt": 1763952000000 },
+    "GOOGL": { "name": "Alphabet Inc.", "currentPrice": 125.40, "updatedAt": 1763952000000 },
+    "AMZN": { "name": "Amazon.com, Inc.", "currentPrice": 142.85, "updatedAt": 1763952000000 },
+    "TSLA": { "name": "Tesla, Inc.", "currentPrice": 225.30, "updatedAt": 1763952000000 },
+    "NVDA": { "name": "NVIDIA Corporation", "currentPrice": 480.12, "updatedAt": 1763952000000 },
+    "META": { "name": "Meta Platforms, Inc.", "currentPrice": 255.33, "updatedAt": 1763952000000 },
+    "BRK_A": { "name": "Berkshire Hathaway A", "currentPrice": 540000.00, "updatedAt": 1763952000000 },
+    "JPM": { "name": "JPMorgan Chase & Co.", "currentPrice": 146.87, "updatedAt": 1763952000000 },
+    "V": { "name": "Visa Inc.", "currentPrice": 235.10, "updatedAt": 1763952000000 },
+    "JNJ": { "name": "Johnson & Johnson", "currentPrice": 170.55, "updatedAt": 1763952000000 },
+    "WMT": { "name": "Walmart Inc.", "currentPrice": 152.22, "updatedAt": 1763952000000 },
+    "PG": { "name": "Procter & Gamble Co.", "currentPrice": 137.44, "updatedAt": 1763952000000 },
+    "BAC": { "name": "Bank of America Corp.", "currentPrice": 31.12, "updatedAt": 1763952000000 },
+    "DIS": { "name": "The Walt Disney Company", "currentPrice": 98.30, "updatedAt": 1763952000000 },
+    "ADBE": { "name": "Adobe Inc.", "currentPrice": 430.75, "updatedAt": 1763952000000 },
+    "NFLX": { "name": "Netflix, Inc.", "currentPrice": 410.55, "updatedAt": 1763952000000 },
+    "INTC": { "name": "Intel Corporation", "currentPrice": 34.88, "updatedAt": 1763952000000 },
+    "CSCO": { "name": "Cisco Systems, Inc.", "currentPrice": 45.22, "updatedAt": 1763952000000 },
+    "ORCL": { "name": "Oracle Corporation", "currentPrice": 88.14, "updatedAt": 1763952000000 },
+    "PEP": { "name": "PepsiCo, Inc.", "currentPrice": 185.60, "updatedAt": 1763952000000 },
+    "KO": { "name": "Coca-Cola Company", "currentPrice": 63.44, "updatedAt": 1763952000000 },
+    "XOM": { "name": "Exxon Mobil Corporation", "currentPrice": 112.99, "updatedAt": 1763952000000 },
+    "PFE": { "name": "Pfizer Inc.", "currentPrice": 36.25, "updatedAt": 1763952000000 },
+    "CRM": { "name": "Salesforce, Inc.", "currentPrice": 210.10, "updatedAt": 1763952000000 },
+    "NKE": { "name": "Nike, Inc.", "currentPrice": 125.66, "updatedAt": 1763952000000 },
+    "T": { "name": "AT&T Inc.", "currentPrice": 17.55, "updatedAt": 1763952000000 },
+    "CMCSA": { "name": "Comcast Corporation", "currentPrice": 35.80, "updatedAt": 1763952000000 },
+    "ABNB": { "name": "Airbnb, Inc.", "currentPrice": 133.22, "updatedAt": 1763952000000 },
+    "UBER": { "name": "Uber Technologies, Inc.", "currentPrice": 41.11, "updatedAt": 1763952000000 }
+  },
+  "users": {
+    "demo_user_uid": {
+      "portfolio": {
+        "item1": {
+          "stockId": "AAPL",
+          "symbol": "AAPL",
+          "name": "Apple Inc.",
+          "quantity": 10,
+          "avgPrice": 150.00,
+          "transactions": {
+            "tx1": { "type": "buy", "price": 150.00, "quantity": 10, "date": 1761206400000 }
+          }
+        },
+        "item2": {
+          "stockId": "MSFT",
+          "symbol": "MSFT",
+          "name": "Microsoft Corp.",
+          "quantity": 5,
+          "avgPrice": 300.00,
+          "transactions": {
+            "tx2": { "type": "buy", "price": 300.00, "quantity": 5, "date": 1762118400000 }
+          }
+        }
+      },
+      "requests": {
+        "req1": { "stockId": "GOOGL", "symbol": "GOOGL", "name": "Alphabet Inc.", "price": 123.00, "quantity": 1, "requestedAt": 1762500000000 }
+      },
+      "watchlist": {
+        "AAPL": { "symbol": "AAPL", "name": "Apple Inc.", "addedAt": 1762000000000 },
+        "GOOGL": { "symbol": "GOOGL", "name": "Alphabet Inc.", "addedAt": 1762000000000 }
+      }
+    },
+    "alice_uid": {
+      "portfolio": {
+        "a1": {
+          "stockId": "TSLA",
+          "symbol": "TSLA",
+          "name": "Tesla, Inc.",
+          "quantity": 3,
+          "avgPrice": 210.00,
+          "transactions": {
+            "t1": { "type": "buy", "price": 200.00, "quantity": 2, "date": 1761300000000 },
+            "t2": { "type": "buy", "price": 220.00, "quantity": 1, "date": 1762400000000 }
+          }
+        }
+      },
+      "requests": {},
+      "watchlist": {
+        "MSFT": { "symbol": "MSFT", "name": "Microsoft Corp.", "addedAt": 1761500000000 }
+      }
+    }
+  }
+}

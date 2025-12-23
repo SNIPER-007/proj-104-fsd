@@ -1,0 +1,48 @@
+type User @table {
+  username: String!
+  passwordHash: String!
+  createdAt: Timestamp!
+  email: String
+  displayName: String
+}
+
+type Stock @table {
+  symbol: String!
+  companyName: String!
+  currency: String!
+  exchange: String
+  sector: String
+}
+
+type Portfolio @table {
+  user: User!
+  name: String!
+  createdAt: Timestamp!
+  description: String
+}
+
+type Transaction @table {
+  user: User!
+  portfolio: Portfolio!
+  stock: Stock!
+  transactionType: String!
+  quantity: Int!
+  pricePerShare: Float!
+  transactionDate: Timestamp!
+  createdAt: Timestamp!
+  notes: String
+}
+
+type Watchlist @table {
+  user: User!
+  name: String!
+  createdAt: Timestamp!
+  description: String
+}
+
+type WatchlistEntry @table(key: ["watchlist", "stock"]) {
+  watchlist: Watchlist!
+  stock: Stock!
+  addedAt: Timestamp!
+  alertPrice: Float
+}

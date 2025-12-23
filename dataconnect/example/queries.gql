@@ -1,0 +1,39 @@
+mutation CreateUser @auth(level: USER) {
+  user_insert(data: {
+    username: "demouser",
+    email: "demouser@example.com",
+    passwordHash: "somehash",
+    createdAt_expr: "request.time",
+    id_expr: "uuidV4()"
+  })
+}
+
+query ListStocks @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public") {
+  stocks {
+    id
+    symbol
+    companyName
+    exchange
+    sector
+    currency
+  }
+}
+
+mutation CreateWatchlist($name: String!, $description: String) @auth(level: USER) {
+  watchlist_insert(data: {
+    name: $name,
+    description: $description,
+    userId_expr: "auth.uid",
+    createdAt_expr: "request.time",
+    id_expr: "uuidV4()"
+  })
+}
+
+query GetUserPortfolios @auth(level: USER) {
+  portfolios(where: {userId: {eq_expr: "auth.uid"}}) {
+    id
+    name
+    description
+    createdAt
+  }
+}
